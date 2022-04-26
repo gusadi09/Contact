@@ -15,8 +15,8 @@
 		ECB7CAA42817DE9E00D120D9 /* Contact.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA782817DE9C00D120D9 /* Contact.xcdatamodeld */; };
 		ECB7CAA52817DE9E00D120D9 /* ContactApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA7A2817DE9C00D120D9 /* ContactApp.swift */; };
 		ECB7CAA62817DE9E00D120D9 /* ContactApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA7A2817DE9C00D120D9 /* ContactApp.swift */; };
-		ECB7CAA72817DE9E00D120D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA7B2817DE9C00D120D9 /* ContentView.swift */; };
-		ECB7CAA82817DE9E00D120D9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA7B2817DE9C00D120D9 /* ContentView.swift */; };
+		ECB7CAA72817DE9E00D120D9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA7B2817DE9C00D120D9 /* HomeView.swift */; };
+		ECB7CAA82817DE9E00D120D9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA7B2817DE9C00D120D9 /* HomeView.swift */; };
 		ECB7CAA92817DE9E00D120D9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA7C2817DE9C00D120D9 /* Persistence.swift */; };
 		ECB7CAAA2817DE9E00D120D9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA7C2817DE9C00D120D9 /* Persistence.swift */; };
 		ECB7CAAB2817DE9E00D120D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB7CA7D2817DE9E00D120D9 /* Assets.xcassets */; };
@@ -43,7 +43,7 @@
 /* Begin PBXFileReference section */
 		ECB7CA792817DE9C00D120D9 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		ECB7CA7A2817DE9C00D120D9 /* ContactApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactApp.swift; sourceTree = "<group>"; };
-		ECB7CA7B2817DE9C00D120D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		ECB7CA7B2817DE9C00D120D9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		ECB7CA7C2817DE9C00D120D9 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		ECB7CA7D2817DE9E00D120D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECB7CA822817DE9E00D120D9 /* Contact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contact.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,11 +103,8 @@
 		ECB7CA772817DE9C00D120D9 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				ECB7CA7A2817DE9C00D120D9 /* ContactApp.swift */,
-				ECB7CA7B2817DE9C00D120D9 /* ContentView.swift */,
-				ECB7CA7C2817DE9C00D120D9 /* Persistence.swift */,
-				ECB7CA7D2817DE9E00D120D9 /* Assets.xcassets */,
-				ECB7CA782817DE9C00D120D9 /* Contact.xcdatamodeld */,
+				ECB7CABF2817DF0600D120D9 /* View */,
+				ECB7CABB2817DED300D120D9 /* Common */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -147,6 +144,65 @@
 				ECB7CAA12817DE9E00D120D9 /* Tests_macOSLaunchTests.swift */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		ECB7CABB2817DED300D120D9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				ECB7CABE2817DEF900D120D9 /* Base */,
+				ECB7CABD2817DEEE00D120D9 /* Resource */,
+				ECB7CABC2817DEDF00D120D9 /* LocalDB */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		ECB7CABC2817DEDF00D120D9 /* LocalDB */ = {
+			isa = PBXGroup;
+			children = (
+				ECB7CA7C2817DE9C00D120D9 /* Persistence.swift */,
+				ECB7CA782817DE9C00D120D9 /* Contact.xcdatamodeld */,
+			);
+			path = LocalDB;
+			sourceTree = "<group>";
+		};
+		ECB7CABD2817DEEE00D120D9 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				ECB7CA7D2817DE9E00D120D9 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		ECB7CABE2817DEF900D120D9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				ECB7CA7A2817DE9C00D120D9 /* ContactApp.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		ECB7CABF2817DF0600D120D9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ECB7CAC02817DF2000D120D9 /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ECB7CAC02817DF2000D120D9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				ECB7CAC12817DF2800D120D9 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		ECB7CAC12817DF2800D120D9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ECB7CA7B2817DE9C00D120D9 /* HomeView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,7 +366,7 @@
 				ECB7CAA52817DE9E00D120D9 /* ContactApp.swift in Sources */,
 				ECB7CAA92817DE9E00D120D9 /* Persistence.swift in Sources */,
 				ECB7CAA32817DE9E00D120D9 /* Contact.xcdatamodeld in Sources */,
-				ECB7CAA72817DE9E00D120D9 /* ContentView.swift in Sources */,
+				ECB7CAA72817DE9E00D120D9 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +377,7 @@
 				ECB7CAA62817DE9E00D120D9 /* ContactApp.swift in Sources */,
 				ECB7CAAA2817DE9E00D120D9 /* Persistence.swift in Sources */,
 				ECB7CAA42817DE9E00D120D9 /* Contact.xcdatamodeld in Sources */,
-				ECB7CAA82817DE9E00D120D9 /* ContentView.swift in Sources */,
+				ECB7CAA82817DE9E00D120D9 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
