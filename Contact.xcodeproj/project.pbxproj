@@ -21,6 +21,7 @@
 		ECB7CAAA2817DE9E00D120D9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA7C2817DE9C00D120D9 /* Persistence.swift */; };
 		ECB7CAAB2817DE9E00D120D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB7CA7D2817DE9E00D120D9 /* Assets.xcassets */; };
 		ECB7CAAC2817DE9E00D120D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB7CA7D2817DE9E00D120D9 /* Assets.xcassets */; };
+		ECB7CAC62817E59A00D120D9 /* MoyaProvider+AsyncRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CAC52817E59A00D120D9 /* MoyaProvider+AsyncRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		ECB7CA9B2817DE9E00D120D9 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB7CA9F2817DE9E00D120D9 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		ECB7CAA12817DE9E00D120D9 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		ECB7CAC52817E59A00D120D9 /* MoyaProvider+AsyncRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+AsyncRequest.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 		ECB7CABB2817DED300D120D9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				ECB7CAC32817E46B00D120D9 /* Extension */,
 				ECB7CABE2817DEF900D120D9 /* Base */,
 				ECB7CABD2817DEEE00D120D9 /* Resource */,
 				ECB7CABC2817DEDF00D120D9 /* LocalDB */,
@@ -203,6 +206,22 @@
 				ECB7CA7B2817DE9C00D120D9 /* HomeView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		ECB7CAC32817E46B00D120D9 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				ECB7CAC42817E47200D120D9 /* Moya */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		ECB7CAC42817E47200D120D9 /* Moya */ = {
+			isa = PBXGroup;
+			children = (
+				ECB7CAC52817E59A00D120D9 /* MoyaProvider+AsyncRequest.swift */,
+			);
+			path = Moya;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +387,7 @@
 			files = (
 				ECB7CAA52817DE9E00D120D9 /* ContactApp.swift in Sources */,
 				ECB7CAA92817DE9E00D120D9 /* Persistence.swift in Sources */,
+				ECB7CAC62817E59A00D120D9 /* MoyaProvider+AsyncRequest.swift in Sources */,
 				ECB7CAA32817DE9E00D120D9 /* Contact.xcdatamodeld in Sources */,
 				ECB7CAA72817DE9E00D120D9 /* HomeView.swift in Sources */,
 			);
