@@ -34,7 +34,6 @@
 		ECCE5F9A2818EBB400D28D19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECCE5F9D2818EBB400D28D19 /* Localizable.strings */; };
 		ECCE5F9B2818EBB400D28D19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECCE5F9D2818EBB400D28D19 /* Localizable.strings */; };
 		ECCE5FA02818EBEA00D28D19 /* LocalizableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCE5F9F2818EBEA00D28D19 /* LocalizableText.swift */; };
-		ECCE5FA12818EBEA00D28D19 /* LocalizableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCE5F9F2818EBEA00D28D19 /* LocalizableText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -469,7 +468,6 @@
 				ECB7CAA62817DE9E00D120D9 /* ContactApp.swift in Sources */,
 				ECB7CAAA2817DE9E00D120D9 /* Persistence.swift in Sources */,
 				ECB7CAA42817DE9E00D120D9 /* Contact.xcdatamodeld in Sources */,
-				ECCE5FA12818EBEA00D28D19 /* LocalizableText.swift in Sources */,
 				ECB7CAA82817DE9E00D120D9 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

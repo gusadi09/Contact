@@ -13,8 +13,10 @@ struct ContactApp: App {
 
     var body: some Scene {
         WindowGroup {
+					NavigationView {
             HomeView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+					}
+					.navigationViewStyle(.stack)
         }
     }
 }
