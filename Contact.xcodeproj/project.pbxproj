@@ -31,6 +31,8 @@
 		ECB7CAE52817F48A00D120D9 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = ECB7CAE42817F48A00D120D9 /* Moya */; };
 		ECB7CAE72817F48A00D120D9 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = ECB7CAE62817F48A00D120D9 /* ReactiveMoya */; };
 		ECB7CAE92817F48A00D120D9 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = ECB7CAE82817F48A00D120D9 /* RxMoya */; };
+		ECCE5F9A2818EBB400D28D19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECCE5F9D2818EBB400D28D19 /* Localizable.strings */; };
+		ECCE5F9B2818EBB400D28D19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECCE5F9D2818EBB400D28D19 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		ECB7CAA12817DE9E00D120D9 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		ECB7CAC52817E59A00D120D9 /* MoyaProvider+AsyncRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+AsyncRequest.swift"; sourceTree = "<group>"; };
 		ECB7CAC72817F36800D120D9 /* MoyaProvider+defaultProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+defaultProvider.swift"; sourceTree = "<group>"; };
+		ECCE5F9C2818EBB400D28D19 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ECCE5F9E2818EBB600D28D19 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +194,8 @@
 		ECB7CABD2817DEEE00D120D9 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				ECB7CA7D2817DE9E00D120D9 /* Assets.xcassets */,
+				ECCE5F962818EB8A00D28D19 /* Localization */,
+				ECCE5F952818EB7E00D28D19 /* Assets */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -249,6 +254,22 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECCE5F952818EB7E00D28D19 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				ECB7CA7D2817DE9E00D120D9 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		ECCE5F962818EB8A00D28D19 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				ECCE5F9D2818EBB400D28D19 /* Localizable.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +390,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = ECB7CA722817DE9C00D120D9;
 			packageReferences = (
@@ -392,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECB7CAAB2817DE9E00D120D9 /* Assets.xcassets in Resources */,
+				ECCE5F9A2818EBB400D28D19 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECB7CAAC2817DE9E00D120D9 /* Assets.xcassets in Resources */,
+				ECCE5F9B2818EBB400D28D19 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +500,18 @@
 			targetProxy = ECB7CA9C2817DE9E00D120D9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ECCE5F9D2818EBB400D28D19 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECCE5F9C2818EBB400D28D19 /* id */,
+				ECCE5F9E2818EBB600D28D19 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		ECB7CAAD2817DE9E00D120D9 /* Debug */ = {
