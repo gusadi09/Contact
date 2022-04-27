@@ -14,8 +14,9 @@ struct HomeView: View {
 
 	var body: some View {
 		List {
-
+			
 		}
+		.listStyle(.plain)
 		.navigationTitle(LocalizableText.homeScreenTitle)
 		.toolbar {
 			ToolbarItem(placement: .navigationBarLeading) {
