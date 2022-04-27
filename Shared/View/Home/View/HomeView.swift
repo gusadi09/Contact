@@ -9,31 +9,33 @@ import SwiftUI
 import CoreData
 
 struct HomeView: View {
-	
+
+	@ObservedObject var viewModel = HomeViewModel()
+
 	var body: some View {
 		List {
-			
+
 		}
 		.navigationTitle(LocalizableText.homeScreenTitle)
 		.toolbar {
 			ToolbarItem(placement: .navigationBarLeading) {
 				Button {
-					
+
 				} label: {
 					Text(LocalizableText.homeScreenGroupText)
 						.foregroundColor(.teal)
 				}
 			}
-			
+
 			ToolbarItem(placement: .navigationBarTrailing) {
 				Button {
-					
+
 				} label: {
 					Image(systemName: "plus")
 						.foregroundColor(.teal)
 				}
 			}
-			
+
 		}
 	}
 }
