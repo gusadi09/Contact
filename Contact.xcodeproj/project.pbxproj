@@ -33,6 +33,8 @@
 		ECB7CAE92817F48A00D120D9 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = ECB7CAE82817F48A00D120D9 /* RxMoya */; };
 		ECCE5F9A2818EBB400D28D19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECCE5F9D2818EBB400D28D19 /* Localizable.strings */; };
 		ECCE5F9B2818EBB400D28D19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECCE5F9D2818EBB400D28D19 /* Localizable.strings */; };
+		ECCE5FA02818EBEA00D28D19 /* LocalizableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCE5F9F2818EBEA00D28D19 /* LocalizableText.swift */; };
+		ECCE5FA12818EBEA00D28D19 /* LocalizableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCE5F9F2818EBEA00D28D19 /* LocalizableText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,7 @@
 		ECB7CAC72817F36800D120D9 /* MoyaProvider+defaultProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+defaultProvider.swift"; sourceTree = "<group>"; };
 		ECCE5F9C2818EBB400D28D19 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECCE5F9E2818EBB600D28D19 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ECCE5F9F2818EBEA00D28D19 /* LocalizableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +199,7 @@
 			children = (
 				ECCE5F962818EB8A00D28D19 /* Localization */,
 				ECCE5F952818EB7E00D28D19 /* Assets */,
+				ECCE5F9F2818EBEA00D28D19 /* LocalizableText.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -451,6 +455,7 @@
 				ECB7CAA52817DE9E00D120D9 /* ContactApp.swift in Sources */,
 				ECB7CAA92817DE9E00D120D9 /* Persistence.swift in Sources */,
 				ECB7CAC62817E59A00D120D9 /* MoyaProvider+AsyncRequest.swift in Sources */,
+				ECCE5FA02818EBEA00D28D19 /* LocalizableText.swift in Sources */,
 				ECB7CAC82817F36800D120D9 /* MoyaProvider+defaultProvider.swift in Sources */,
 				ECB7CAA32817DE9E00D120D9 /* Contact.xcdatamodeld in Sources */,
 				ECB7CAA72817DE9E00D120D9 /* HomeView.swift in Sources */,
@@ -464,6 +469,7 @@
 				ECB7CAA62817DE9E00D120D9 /* ContactApp.swift in Sources */,
 				ECB7CAAA2817DE9E00D120D9 /* Persistence.swift in Sources */,
 				ECB7CAA42817DE9E00D120D9 /* Contact.xcdatamodeld in Sources */,
+				ECCE5FA12818EBEA00D28D19 /* LocalizableText.swift in Sources */,
 				ECB7CAA82817DE9E00D120D9 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
