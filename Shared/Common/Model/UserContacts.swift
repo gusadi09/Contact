@@ -13,6 +13,12 @@ struct UserListResponse: Codable {
 	let total: UInt?
 	let totalPages: UInt?
 	let data: [UserData]?
+
+	enum CodingKeys: String, CodingKey {
+		case page, total, data
+		case perPage = "per_page"
+		case totalPages = "total_pages"
+	}
 }
 
 struct UserData: Codable {
@@ -21,9 +27,28 @@ struct UserData: Codable {
 	let firstName: String?
 	let lastName: String?
 	let avatar: String?
+
+	enum CodingKeys: String, CodingKey {
+		case id, email, avatar
+		case firstName = "first_name"
+		case lastName = "last_name"
+	}
+
+	static func == (lhs: UserData, rhs: UserData) -> Bool {
+		lhs.id.orZero() == rhs.id.orZero()
+	}
+
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(id.orZero())
+	}
 }
 
 struct UserBody: Codable {
 	var firstName: String
 	var lastName: String
+
+	enum CodingKeys: String, CodingKey {
+		case firstName = "first_name"
+		case lastName = "last_name"
+	}
 }
