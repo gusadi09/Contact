@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		EC03177F281A594A00385089 /* ContactsTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC03177E281A594A00385089 /* ContactsTargetType.swift */; };
+		EC031784281A5A2700385089 /* UsersTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC031783281A5A2700385089 /* UsersTargetType.swift */; };
+		EC031786281A5A3500385089 /* UsersRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC031785281A5A3500385089 /* UsersRemoteDataSource.swift */; };
+		EC031788281A5A4500385089 /* UsersDefaultRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC031787281A5A4500385089 /* UsersDefaultRemoteDataSource.swift */; };
+		EC03178A281A5A5400385089 /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC031789281A5A5400385089 /* UsersRepository.swift */; };
+		EC03178C281A5A6000385089 /* UsersDefaultRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC03178B281A5A6000385089 /* UsersDefaultRepository.swift */; };
 		ECB7CA942817DE9E00D120D9 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA932817DE9E00D120D9 /* Tests_iOS.swift */; };
 		ECB7CA962817DE9E00D120D9 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA952817DE9E00D120D9 /* Tests_iOSLaunchTests.swift */; };
 		ECB7CAA02817DE9E00D120D9 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA9F2817DE9E00D120D9 /* Tests_macOS.swift */; };
@@ -64,6 +69,11 @@
 
 /* Begin PBXFileReference section */
 		EC03177E281A594A00385089 /* ContactsTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTargetType.swift; sourceTree = "<group>"; };
+		EC031783281A5A2700385089 /* UsersTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTargetType.swift; sourceTree = "<group>"; };
+		EC031785281A5A3500385089 /* UsersRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRemoteDataSource.swift; sourceTree = "<group>"; };
+		EC031787281A5A4500385089 /* UsersDefaultRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDefaultRemoteDataSource.swift; sourceTree = "<group>"; };
+		EC031789281A5A5400385089 /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
+		EC03178B281A5A6000385089 /* UsersDefaultRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDefaultRepository.swift; sourceTree = "<group>"; };
 		ECB7CA792817DE9C00D120D9 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		ECB7CA7A2817DE9C00D120D9 /* ContactApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactApp.swift; sourceTree = "<group>"; };
 		ECB7CA7B2817DE9C00D120D9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -132,6 +142,7 @@
 		EC03177C281A592D00385089 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				EC031780281A59EE00385089 /* Users */,
 				EC03177D281A593900385089 /* Reusables */,
 			);
 			path = Data;
@@ -143,6 +154,34 @@
 				EC03177E281A594A00385089 /* ContactsTargetType.swift */,
 			);
 			path = Reusables;
+			sourceTree = "<group>";
+		};
+		EC031780281A59EE00385089 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				EC031781281A5A1100385089 /* Remote */,
+				EC031789281A5A5400385089 /* UsersRepository.swift */,
+				EC03178B281A5A6000385089 /* UsersDefaultRepository.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		EC031781281A5A1100385089 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				EC031782281A5A1900385089 /* TargetType */,
+				EC031785281A5A3500385089 /* UsersRemoteDataSource.swift */,
+				EC031787281A5A4500385089 /* UsersDefaultRemoteDataSource.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		EC031782281A5A1900385089 /* TargetType */ = {
+			isa = PBXGroup;
+			children = (
+				EC031783281A5A2700385089 /* UsersTargetType.swift */,
+			);
+			path = TargetType;
 			sourceTree = "<group>";
 		};
 		ECB7CA722817DE9C00D120D9 = {
@@ -512,8 +551,11 @@
 			files = (
 				ECCE5FAF281975FE00D28D19 /* UserContacts.swift in Sources */,
 				ECB7CAA52817DE9E00D120D9 /* ContactApp.swift in Sources */,
+				EC03178A281A5A5400385089 /* UsersRepository.swift in Sources */,
 				ECB7CAA92817DE9E00D120D9 /* Persistence.swift in Sources */,
 				ECCE5FAB281972B000D28D19 /* ImageLoader.swift in Sources */,
+				EC031784281A5A2700385089 /* UsersTargetType.swift in Sources */,
+				EC031786281A5A3500385089 /* UsersRemoteDataSource.swift in Sources */,
 				ECB7CAC62817E59A00D120D9 /* MoyaProvider+AsyncRequest.swift in Sources */,
 				ECCE5FA42818FF9600D28D19 /* HomeViewModel.swift in Sources */,
 				ECCE5FA02818EBEA00D28D19 /* LocalizableText.swift in Sources */,
@@ -521,6 +563,8 @@
 				ECB7CAA32817DE9E00D120D9 /* Contact.xcdatamodeld in Sources */,
 				ECB7CAA72817DE9E00D120D9 /* HomeView.swift in Sources */,
 				ECCE5FA82819700200D28D19 /* ContactCard.swift in Sources */,
+				EC03178C281A5A6000385089 /* UsersDefaultRepository.swift in Sources */,
+				EC031788281A5A4500385089 /* UsersDefaultRemoteDataSource.swift in Sources */,
 				EC03177F281A594A00385089 /* ContactsTargetType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
