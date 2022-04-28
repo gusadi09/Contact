@@ -40,6 +40,8 @@
 		ECCE5FA92819700200D28D19 /* ContactCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCE5FA72819700100D28D19 /* ContactCard.swift */; };
 		ECCE5FAB281972B000D28D19 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCE5FAA281972B000D28D19 /* ImageLoader.swift */; };
 		ECCE5FAC281972B000D28D19 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCE5FAA281972B000D28D19 /* ImageLoader.swift */; };
+		ECCE5FAF281975FE00D28D19 /* UserContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCE5FAE281975FE00D28D19 /* UserContacts.swift */; };
+		ECCE5FB0281975FE00D28D19 /* UserContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCE5FAE281975FE00D28D19 /* UserContacts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,7 @@
 		ECCE5FA32818FF9600D28D19 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		ECCE5FA72819700100D28D19 /* ContactCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCard.swift; sourceTree = "<group>"; };
 		ECCE5FAA281972B000D28D19 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		ECCE5FAE281975FE00D28D19 /* UserContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserContacts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +188,7 @@
 		ECB7CABB2817DED300D120D9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				ECCE5FAD281975CB00D28D19 /* Model */,
 				ECCE5FA628196FE200D28D19 /* Component */,
 				ECB7CAC32817E46B00D120D9 /* Extension */,
 				ECB7CABE2817DEF900D120D9 /* Base */,
@@ -301,6 +305,14 @@
 				ECCE5FAA281972B000D28D19 /* ImageLoader.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		ECCE5FAD281975CB00D28D19 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ECCE5FAE281975FE00D28D19 /* UserContacts.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,6 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECCE5FAF281975FE00D28D19 /* UserContacts.swift in Sources */,
 				ECB7CAA52817DE9E00D120D9 /* ContactApp.swift in Sources */,
 				ECB7CAA92817DE9E00D120D9 /* Persistence.swift in Sources */,
 				ECCE5FAB281972B000D28D19 /* ImageLoader.swift in Sources */,
@@ -499,6 +512,7 @@
 				ECCE5FAC281972B000D28D19 /* ImageLoader.swift in Sources */,
 				ECB7CAA62817DE9E00D120D9 /* ContactApp.swift in Sources */,
 				ECB7CAAA2817DE9E00D120D9 /* Persistence.swift in Sources */,
+				ECCE5FB0281975FE00D28D19 /* UserContacts.swift in Sources */,
 				ECCE5FA92819700200D28D19 /* ContactCard.swift in Sources */,
 				ECB7CAA42817DE9E00D120D9 /* Contact.xcdatamodeld in Sources */,
 				ECCE5FA52818FF9600D28D19 /* HomeViewModel.swift in Sources */,
