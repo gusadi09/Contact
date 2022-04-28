@@ -22,3 +22,8 @@ struct UserData: Codable {
 	let lastName: String?
 	let avatar: String?
 }
+
+struct UserBody: Codable {
+	var firstName: String
+	var lastName: String
+}
