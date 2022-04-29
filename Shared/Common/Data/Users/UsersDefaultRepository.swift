@@ -22,4 +22,8 @@ final class UsersDefaultRepository: UsersRepository {
 	func provideGetSingleUser(by userId: UInt) async throws -> SingleUserResponse {
 		try await self.remote.getSingleUser(by: userId)
 	}
+
+	func provideAddContact(with body: UserBody) async throws -> CreateResponse {
+		try await self.remote.addContact(with: body)
+	}
 }

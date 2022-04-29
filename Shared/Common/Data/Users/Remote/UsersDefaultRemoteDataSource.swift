@@ -23,4 +23,8 @@ final class UsersDefaultRemoteDataSource: UsersRemoteDataSource {
 	func getSingleUser(by userId: UInt) async throws -> SingleUserResponse {
 		try await self.provider.asyncRequest(.getSingleUser(userId), model: SingleUserResponse.self)
 	}
+
+	func addContact(with body: UserBody) async throws -> CreateResponse {
+		try await self.provider.asyncRequest(.createUser(body), model: CreateResponse.self)
+	}
 }

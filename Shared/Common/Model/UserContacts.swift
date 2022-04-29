@@ -47,6 +47,16 @@ struct UserData: Codable, Hashable {
 	}
 }
 
+struct CreateResponse: Codable {
+	let firstName: String?
+	let lastName: String?
+
+	enum CodingKeys: String, CodingKey {
+		case firstName = "first_name"
+		case lastName = "last_name"
+	}
+}
+
 struct UserBody: Codable {
 	var firstName: String
 	var lastName: String

@@ -10,4 +10,5 @@ import Foundation
 protocol UsersRemoteDataSource {
 	func getUsersList(page: UInt) async throws -> UserListResponse
 	func getSingleUser(by userId: UInt) async throws -> SingleUserResponse
+	func addContact(with body: UserBody) async throws -> CreateResponse
 }

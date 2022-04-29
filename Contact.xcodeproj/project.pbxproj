@@ -32,6 +32,8 @@
 		EC28CDDE281BCC9900048093 /* Sequence+Uniqued.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDDD281BCC9900048093 /* Sequence+Uniqued.swift */; };
 		EC28CDE4281BDE5400048093 /* CreateContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDE3281BDE5400048093 /* CreateContactViewModel.swift */; };
 		EC28CDE6281BDE7300048093 /* CreateContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDE5281BDE7300048093 /* CreateContactView.swift */; };
+		EC28CDE9281BE06200048093 /* UsersLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDE8281BE06200048093 /* UsersLocalDataSource.swift */; };
+		EC28CDEB281BE07000048093 /* UsersDefaultLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDEA281BE07000048093 /* UsersDefaultLocalDataSource.swift */; };
 		ECB7CA942817DE9E00D120D9 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA932817DE9E00D120D9 /* Tests_iOS.swift */; };
 		ECB7CA962817DE9E00D120D9 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA952817DE9E00D120D9 /* Tests_iOSLaunchTests.swift */; };
 		ECB7CAA02817DE9E00D120D9 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA9F2817DE9E00D120D9 /* Tests_macOS.swift */; };
@@ -116,6 +118,8 @@
 		EC28CDDD281BCC9900048093 /* Sequence+Uniqued.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Uniqued.swift"; sourceTree = "<group>"; };
 		EC28CDE3281BDE5400048093 /* CreateContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactViewModel.swift; sourceTree = "<group>"; };
 		EC28CDE5281BDE7300048093 /* CreateContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactView.swift; sourceTree = "<group>"; };
+		EC28CDE8281BE06200048093 /* UsersLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersLocalDataSource.swift; sourceTree = "<group>"; };
+		EC28CDEA281BE07000048093 /* UsersDefaultLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDefaultLocalDataSource.swift; sourceTree = "<group>"; };
 		ECB7CA792817DE9C00D120D9 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		ECB7CA7A2817DE9C00D120D9 /* ContactApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactApp.swift; sourceTree = "<group>"; };
 		ECB7CA7B2817DE9C00D120D9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -212,6 +216,7 @@
 		EC031780281A59EE00385089 /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				EC28CDE7281BE04F00048093 /* Local */,
 				EC031781281A5A1100385089 /* Remote */,
 				EC031789281A5A5400385089 /* UsersRepository.swift */,
 				EC03178B281A5A6000385089 /* UsersDefaultRepository.swift */,
@@ -334,6 +339,15 @@
 				ECB7CAC02817DF2000D120D9 /* Home */,
 			);
 			path = Feature;
+			sourceTree = "<group>";
+		};
+		EC28CDE7281BE04F00048093 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				EC28CDE8281BE06200048093 /* UsersLocalDataSource.swift */,
+				EC28CDEA281BE07000048093 /* UsersDefaultLocalDataSource.swift */,
+			);
+			path = Local;
 			sourceTree = "<group>";
 		};
 		ECB7CA722817DE9C00D120D9 = {
@@ -770,6 +784,8 @@
 				EC28CDD4281BAE1500048093 /* ContactDetailViewModel.swift in Sources */,
 				EC031791281A937700385089 /* Int+orZero.swift in Sources */,
 				ECCE5FA82819700200D28D19 /* ContactCard.swift in Sources */,
+				EC28CDEB281BE07000048093 /* UsersDefaultLocalDataSource.swift in Sources */,
+				EC28CDE9281BE06200048093 /* UsersLocalDataSource.swift in Sources */,
 				EC03178C281A5A6000385089 /* UsersDefaultRepository.swift in Sources */,
 				EC031788281A5A4500385089 /* UsersDefaultRemoteDataSource.swift in Sources */,
 				EC03177F281A594A00385089 /* ContactsTargetType.swift in Sources */,
