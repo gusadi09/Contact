@@ -30,7 +30,7 @@ final class HomeViewModel: ObservableObject {
 
 	func getSectionedDictionary() -> Dictionary <String , [UserData]> {
 		let sectionDictionary: Dictionary<String, [UserData]> = {
-			return Dictionary(grouping: userLists, by: {
+			return Dictionary(grouping: userLists.unique(), by: {
 				let name = $0.firstName.orEmpty()
 				let normalizedName = name.folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
 				let firstChar = String(normalizedName.first.orEmpty()).uppercased()

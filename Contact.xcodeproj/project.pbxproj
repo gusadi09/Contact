@@ -29,6 +29,7 @@
 		EC28CDD8281BB3DE00048093 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDD7281BB3DE00048093 /* PrimaryButton.swift */; };
 		EC28CDDA281BB46D00048093 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDD9281BB46D00048093 /* SecondaryButton.swift */; };
 		EC28CDDC281BB64700048093 /* ContactDetailView+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDDB281BB64700048093 /* ContactDetailView+Component.swift */; };
+		EC28CDDE281BCC9900048093 /* Sequence+Uniqued.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDDD281BCC9900048093 /* Sequence+Uniqued.swift */; };
 		ECB7CA942817DE9E00D120D9 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA932817DE9E00D120D9 /* Tests_iOS.swift */; };
 		ECB7CA962817DE9E00D120D9 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA952817DE9E00D120D9 /* Tests_iOSLaunchTests.swift */; };
 		ECB7CAA02817DE9E00D120D9 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA9F2817DE9E00D120D9 /* Tests_macOS.swift */; };
@@ -110,6 +111,7 @@
 		EC28CDD7281BB3DE00048093 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		EC28CDD9281BB46D00048093 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		EC28CDDB281BB64700048093 /* ContactDetailView+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactDetailView+Component.swift"; sourceTree = "<group>"; };
+		EC28CDDD281BCC9900048093 /* Sequence+Uniqued.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Uniqued.swift"; sourceTree = "<group>"; };
 		ECB7CA792817DE9C00D120D9 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		ECB7CA7A2817DE9C00D120D9 /* ContactApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactApp.swift; sourceTree = "<group>"; };
 		ECB7CA7B2817DE9C00D120D9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				EC031792281A93A900385089 /* String+orEmpty.swift */,
 				EC031794281A93ED00385089 /* UInt+orZero.swift */,
 				EC28CDCE281B9C6000048093 /* Character+orEmpty.swift */,
+				EC28CDDD281BCC9900048093 /* Sequence+Uniqued.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -722,6 +725,7 @@
 				ECCE5FA02818EBEA00D28D19 /* LocalizableText.swift in Sources */,
 				ECB7CAC82817F36800D120D9 /* MoyaProvider+defaultProvider.swift in Sources */,
 				ECB7CAA32817DE9E00D120D9 /* Contact.xcdatamodeld in Sources */,
+				EC28CDDE281BCC9900048093 /* Sequence+Uniqued.swift in Sources */,
 				ECB7CAA72817DE9E00D120D9 /* HomeView.swift in Sources */,
 				EC28CDD4281BAE1500048093 /* ContactDetailViewModel.swift in Sources */,
 				EC031791281A937700385089 /* Int+orZero.swift in Sources */,

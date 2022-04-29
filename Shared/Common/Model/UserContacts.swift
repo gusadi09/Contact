@@ -25,7 +25,7 @@ struct SingleUserResponse: Codable {
 	let data: UserData?
 }
 
-struct UserData: Codable {
+struct UserData: Codable, Hashable {
 	let id: UInt?
 	let email: String?
 	let firstName: String?
