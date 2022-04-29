@@ -14,9 +14,27 @@ struct HomeView: View {
 
 	var body: some View {
 		List {
-			
+			Section {
+				ForEach(viewModel.userLists, id: \.id) { item in
+					ContactCard(user: item)
+						.task {
+							if item.id == viewModel.userLists.last?.id {
+								viewModel.page += 1
+								await viewModel.getUsersList()
+							}
+						}
+				}
+			}
 		}
 		.listStyle(.plain)
+		.refreshable {
+			viewModel.userLists = []
+			viewModel.page = 1
+			viewModel.onLoadContact()
+		}
+		.onAppear(perform: {
+			viewModel.onLoadContact()
+		})
 		.navigationTitle(LocalizableText.homeScreenTitle)
 		.toolbar {
 			ToolbarItem(placement: .navigationBarLeading) {

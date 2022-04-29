@@ -9,17 +9,16 @@ import SwiftUI
 
 struct ContactCard: View {
 
-	var imageUrl: String
-	var contactName: String
+	var user: UserData
 
 	var body: some View {
 		HStack(spacing: 20) {
 			ImageLoader(
-				url: imageUrl,
+				url: user.avatar.orEmpty(),
 				width: 50
 			)
 
-			Text(contactName)
+			Text(user.firstName.orEmpty() + " " + user.lastName.orEmpty())
 				.font(.system(size: 14, weight: .bold, design: .default))
 
 			Spacer()
@@ -30,6 +29,14 @@ struct ContactCard: View {
 
 struct ContactCard_Previews: PreviewProvider {
 	static var previews: some View {
-		ContactCard(imageUrl: "", contactName: "")
+		ContactCard(
+			user: UserData(
+				id: 1,
+				email: "test@mail.com",
+				firstName: "test",
+				lastName: "test",
+				avatar: ""
+			)
+		)
 	}
 }

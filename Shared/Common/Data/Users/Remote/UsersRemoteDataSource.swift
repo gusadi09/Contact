@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+protocol UsersRemoteDataSource {
+	func getUsersList(page: UInt) async throws -> UserListResponse
+	func getSingleUser(by userId: UInt) async throws -> UserData
+}
