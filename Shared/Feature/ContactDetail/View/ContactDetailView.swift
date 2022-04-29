@@ -14,7 +14,7 @@ struct ContactDetailView: View {
 	
 	var body: some View {
 		GeometryReader { geo in
-			ZStack {
+			ZStack(alignment: .top) {
 				VStack {
 					HeaderView(viewModel: viewModel, geo: geo)
 
@@ -45,6 +45,7 @@ struct ContactDetailView: View {
 
 						ProgressView()
 							.progressViewStyle(.circular)
+							.tint(.white)
 					}
 				}
 			}
@@ -62,7 +63,7 @@ struct ContactDetailView: View {
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
 					NavigationLink {
-						
+
 					} label: {
 						Text(LocalizableText.detailScreenEditText)
 							.foregroundColor(.teal)

@@ -41,9 +41,11 @@ final class ContactDetailViewModel: ObservableObject {
 			}
 			
 		} catch {
-			self.isLoading = false
-			self.isError = true
-			self.error = error.localizedDescription
+			DispatchQueue.main.async {
+				self.isLoading = false
+				self.isError = true
+				self.error = error.localizedDescription
+			}
 		}
 	}
 	

@@ -25,7 +25,7 @@ struct SingleUserResponse: Codable {
 	let data: UserData?
 }
 
-struct UserData: Codable {
+struct UserData: Codable, Hashable {
 	let id: UInt?
 	let email: String?
 	let firstName: String?
@@ -44,6 +44,18 @@ struct UserData: Codable {
 
 	func hash(into hasher: inout Hasher) {
 		hasher.combine(id.orZero())
+	}
+}
+
+struct CreateResponse: Codable {
+	let firstName: String?
+	let lastName: String?
+	let id: String?
+
+	enum CodingKeys: String, CodingKey {
+		case firstName = "first_name"
+		case lastName = "last_name"
+		case id
 	}
 }
 

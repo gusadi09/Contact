@@ -7,6 +7,7 @@
 */
 
 "general_attention" = "Perhatian";
+"general_done" = "Selesai";
 
 "home_screen_title" = "Kontak";
 "home_screen_groups_text" = "Kelompok";
@@ -17,3 +18,6 @@
 "detail_screen_email_text" = "Surel";
 "detail_screen_favourite_text" = "Favorit";
 "detail_screen_contact_id_text" = "ID Kontak";
+
+"create_screen_first_name_text" = "Nama Depan";
+"create_screen_last_name_text" = "Nama Belakang";
