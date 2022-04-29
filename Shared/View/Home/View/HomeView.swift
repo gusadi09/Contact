@@ -9,82 +9,83 @@ import SwiftUI
 import CoreData
 
 struct HomeView: View {
-    @Environment(\.managedObjectContext) private var viewContext
 
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
+	@ObservedObject var viewModel = HomeViewModel()
 
-    var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-#if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-#endif
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
-        }
-    }
+	init() {
+		UITableView.appearance().sectionFooterHeight = 0
+		UITableView.appearance().sectionHeaderHeight = 0
+	}
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+	var body: some View {
+		List {
+			ForEach(viewModel.sectionedDict.keys.sorted(), id: \.self) { key in
 
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
+				if let contacts = viewModel.sectionedDict[key] {
+					ForEach(contacts, id: \.id) { item in
+						Section {
+							NavigationLink {
 
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+							} label: {
+								ContactCard(user: item)
+							}
+							.task {
+								if item.id == viewModel.userLists.last?.id {
+									viewModel.page += 1
+									await viewModel.getUsersList()
+								}
+							}
+						} header: {
+							Text("\(key)")
+						}
+					}
+				}
+			}
+		}
+		.listStyle(.plain)
+		.refreshable {
+			Task {
+				viewModel.userLists = []
+				viewModel.page = 1
+				await viewModel.getUsersList()
+			}
+		}
+		.onAppear(perform: {
+			viewModel.onLoadContact()
+		})
+		.alert(isPresented: $viewModel.isError, content: {
+			Alert(
+				title: Text(LocalizableText.generalAttentionText),
+				message: Text(viewModel.error),
+				dismissButton: .cancel()
+			)
+		})
+		.navigationTitle(LocalizableText.homeScreenTitle)
+		.toolbar {
+			ToolbarItem(placement: .navigationBarLeading) {
+				Button {
 
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
+				} label: {
+					Text(LocalizableText.homeScreenGroupText)
+						.foregroundColor(.teal)
+				}
+			}
+
+			ToolbarItem(placement: .navigationBarTrailing) {
+				Button {
+
+				} label: {
+					Image(systemName: "plus")
+						.foregroundColor(.teal)
+				}
+			}
+
+		}
+	}
 }
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-			HomeView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+			HomeView()
     }
 }
