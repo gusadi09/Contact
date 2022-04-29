@@ -6,14 +6,7 @@
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="EditedContact" representedClassName="EditedContact" syncable="YES" codeGenerationType="class">
-        <attribute name="avatar" optional="YES" attributeType="String"/>
-        <attribute name="firstName" optional="YES" attributeType="String"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="lastName" optional="YES" attributeType="String"/>
-    </entity>
     <elements>
         <element name="Contact" positionX="-63" positionY="-18" width="128" height="89"/>
-        <element name="EditedContact" positionX="-63" positionY="9" width="128" height="89"/>
     </elements>
 </model>

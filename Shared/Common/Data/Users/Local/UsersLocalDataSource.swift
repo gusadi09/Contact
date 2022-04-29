@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import CoreData
+
+protocol UsersLocalDataSource {
+	func saveToLocalContactList(by contact: UserData) throws
+	func loadLocalContact() async throws -> [Contact]
+	func deleteLocalItem() throws
+}

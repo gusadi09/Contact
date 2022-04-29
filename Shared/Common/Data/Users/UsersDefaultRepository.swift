@@ -10,13 +10,18 @@ import Foundation
 final class UsersDefaultRepository: UsersRepository {
 
 	private let remote: UsersRemoteDataSource
+	private let local: UsersLocalDataSource
 
-	init(remote: UsersRemoteDataSource = UsersDefaultRemoteDataSource()) {
+	init(
+		remote: UsersRemoteDataSource = UsersDefaultRemoteDataSource(),
+		local: UsersLocalDataSource = UsersDefaultLocalDataSource()
+	) {
 		self.remote = remote
+		self.local = local
 	}
 
 	func provideGetUsersList(page: UInt) async throws -> UserListResponse {
-		try await self.remote.getUsersList(page: page)
+		return try await self.remote.getUsersList(page: page)
 	}
 
 	func provideGetSingleUser(by userId: UInt) async throws -> SingleUserResponse {
@@ -25,5 +30,17 @@ final class UsersDefaultRepository: UsersRepository {
 
 	func provideAddContact(with body: UserBody) async throws -> CreateResponse {
 		try await self.remote.addContact(with: body)
+	}
+
+	func provideLoadLocalContact() async throws -> [Contact] {
+		try await self.local.loadLocalContact()
+	}
+
+	func provideSaveLocalContact(by user: UserData) throws {
+		try self.local.saveToLocalContactList(by: user)
+	}
+
+	func provideDeleteLocalItem() throws {
+		try self.local.deleteLocalItem()
 	}
 }

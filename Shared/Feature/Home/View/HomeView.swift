@@ -22,10 +22,10 @@ struct HomeView: View {
 			ForEach(viewModel.sectionedDict.keys.sorted(), id: \.self) { key in
 
 				if let contacts = viewModel.sectionedDict[key] {
-					ForEach(contacts, id: \.id) { item in
+					ForEach(contacts.unique(), id: \.id) { item in
 						Section {
 							NavigationLink {
-								ContactDetailView(id: item.id.orZero())
+								ContactDetailView(id: UInt(item.id))
 							} label: {
 								ContactCard(user: item)
 							}
@@ -47,7 +47,9 @@ struct HomeView: View {
 			Task {
 				viewModel.userLists = []
 				viewModel.page = 1
+				await viewModel.deleteItem()
 				await viewModel.getUsersList()
+				await viewModel.loadLocalList()
 			}
 		}
 		.onAppear(perform: {

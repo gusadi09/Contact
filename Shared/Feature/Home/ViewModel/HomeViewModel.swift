@@ -12,8 +12,8 @@ final class HomeViewModel: ObservableObject {
 	private let userRepository: UsersRepository
 
 	@Published var page: UInt = 1
-	@Published var userLists = [UserData]()
-	@Published var sectionedDict: Dictionary<String, [UserData]> = [:]
+	@Published var userLists = [Contact]()
+	@Published var sectionedDict: Dictionary<String, [Contact]> = [:]
 	@Published var error = ""
 	@Published var isError = false
 	@Published var isLoading = false
@@ -28,9 +28,9 @@ final class HomeViewModel: ObservableObject {
 		self.isLoading = true
 	}
 
-	func getSectionedDictionary() -> Dictionary <String , [UserData]> {
-		let sectionDictionary: Dictionary<String, [UserData]> = {
-			return Dictionary(grouping: userLists.unique(), by: {
+	func getSectionedDictionary() -> Dictionary <String , [Contact]> {
+		let sectionDictionary: Dictionary<String, [Contact]> = {
+			return Dictionary(grouping: userLists, by: {
 				let name = $0.firstName.orEmpty()
 				let normalizedName = name.folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
 				let firstChar = String(normalizedName.first.orEmpty()).uppercased()
@@ -40,18 +40,9 @@ final class HomeViewModel: ObservableObject {
 		return sectionDictionary
 	}
 
-	@MainActor func getUsersList() async {
-
-		onStartFetch()
-
+	func deleteItem() async {
 		do {
-
-			let response = try await userRepository.provideGetUsersList(page: page)
-
-			self.isLoading = false
-
-			self.userLists += response.data ?? []
-			self.sectionedDict = getSectionedDictionary()
+			try userRepository.provideDeleteLocalItem()
 		} catch {
 			self.isLoading = false
 			self.isError = true
@@ -59,9 +50,60 @@ final class HomeViewModel: ObservableObject {
 		}
 	}
 
+	func loadLocalList() async {
+
+		do {
+			let data = try await userRepository.provideLoadLocalContact()
+
+			DispatchQueue.main.async {
+				self.userLists += data.unique()
+
+				self.sectionedDict = self.getSectionedDictionary()
+			}
+
+		} catch {
+			DispatchQueue.main.async {
+				self.isLoading = false
+				self.isError = true
+				self.error = error.localizedDescription
+			}
+
+		}
+	}
+
+	func getUsersList() async {
+
+		await onStartFetch()
+
+		do {
+
+			let response = try await userRepository.provideGetUsersList(page: page)
+
+			for item in response.data ?? [] {
+				try self.userRepository.provideSaveLocalContact(by: item)
+			}
+			
+			DispatchQueue.main.async {
+				self.isLoading = false
+			}
+
+		} catch {
+			DispatchQueue.main.async {
+				self.isLoading = false
+				self.isError = true
+				self.error = error.localizedDescription
+			}
+
+		}
+	}
+
 	func onLoadContact() {
+		userLists = []
+		page = 1
 		Task {
+			await deleteItem()
 			await getUsersList()
+			await loadLocalList()
 		}
 	}
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContactCard: View {
 
-	var user: UserData
+	var user: Contact
 
 	var body: some View {
 		HStack(spacing: 20) {
@@ -30,13 +30,7 @@ struct ContactCard: View {
 struct ContactCard_Previews: PreviewProvider {
 	static var previews: some View {
 		ContactCard(
-			user: UserData(
-				id: 1,
-				email: "test@mail.com",
-				firstName: "test",
-				lastName: "test",
-				avatar: ""
-			)
+			user: Contact()
 		)
 	}
 }
