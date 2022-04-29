@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContactCard: View {
 
-	var user: Contact
+	@Binding var user: Contact
 
 	var body: some View {
 		HStack(spacing: 20) {
@@ -30,7 +30,7 @@ struct ContactCard: View {
 struct ContactCard_Previews: PreviewProvider {
 	static var previews: some View {
 		ContactCard(
-			user: Contact()
+			user: .constant(Contact())
 		)
 	}
 }

@@ -50,6 +50,16 @@ final class HomeViewModel: ObservableObject {
 		}
 	}
 
+	func isLocalEmpty() async -> Bool {
+		do {
+			let data = try await userRepository.provideLoadLocalContact()
+
+			return data.isEmpty
+		} catch {
+			return false
+		}
+	}
+
 	func loadLocalList() async {
 
 		do {
@@ -117,7 +127,8 @@ final class HomeViewModel: ObservableObject {
 
 	func onLoadContact() {
 		Task {
-			if self.userLists.isEmpty {
+			let isEmptyOnLocal = await isLocalEmpty()
+			if isEmptyOnLocal {
 				DispatchQueue.main.async {
 					self.userLists = []
 					self.page = 1

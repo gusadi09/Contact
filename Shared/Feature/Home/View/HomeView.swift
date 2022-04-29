@@ -27,7 +27,7 @@ struct HomeView: View {
 							NavigationLink {
 								ContactDetailView(user: .constant(item))
 							} label: {
-								ContactCard(user: item)
+								ContactCard(user: .constant(item))
 							}
 							.task {
 								if item.id == viewModel.userLists.last?.id {
@@ -45,11 +45,12 @@ struct HomeView: View {
 		.listStyle(.plain)
 		.refreshable {
 			Task {
-				if viewModel.userLists.isEmpty {
-				viewModel.userLists = []
-				viewModel.page = 1
-				await viewModel.deleteItem()
-				await viewModel.getUsersList()
+				let isLocalEmpty = await self.viewModel.isLocalEmpty()
+				if isLocalEmpty {
+					viewModel.userLists = []
+					viewModel.page = 1
+					await viewModel.deleteItem()
+					await viewModel.getUsersList()
 					await viewModel.loadCreatedList()
 				}
 
@@ -91,7 +92,7 @@ struct HomeView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-			HomeView()
-    }
+	static var previews: some View {
+		HomeView()
+	}
 }
