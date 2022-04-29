@@ -20,6 +20,18 @@ final class UsersDefaultRepository: UsersRepository {
 		self.local = local
 	}
 
+	func provideLoadCreatedContact() async throws -> [LocalAddedContact] {
+		try await self.local.loadCreatedContact()
+	}
+
+	func provideSaveToLocalContactList(with contact: LocalAddedContact) throws {
+		try self.local.saveToLocalContactList(with: contact)
+	}
+
+	func provideSaveLocalCreate(by contact: CreateResponse) throws {
+		try self.local.saveLocalCreate(by: contact)
+	}
+
 	func provideGetUsersList(page: UInt) async throws -> UserListResponse {
 		return try await self.remote.getUsersList(page: page)
 	}

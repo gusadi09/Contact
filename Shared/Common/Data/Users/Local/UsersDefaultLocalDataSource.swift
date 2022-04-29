@@ -29,10 +29,48 @@ final class UsersDefaultLocalDataSource: UsersLocalDataSource {
 		}
 	}
 
+	func saveToLocalContactList(with contact: LocalAddedContact) throws {
+		let entity = Contact(context: container.viewContext)
+
+		entity.id = contact.id
+		entity.firstName = contact.firstName
+		entity.lastName = contact.lastName
+		entity.avatar = contact.avatar
+
+		if container.viewContext.hasChanges {
+			try container.viewContext.save()
+		}
+	}
+
+	func saveLocalCreate(by contact: CreateResponse) throws {
+		let entity = LocalAddedContact(context: container.viewContext)
+
+		entity.id = Int64(contact.id.orEmpty()) ?? 0
+		entity.firstName = contact.firstName.orEmpty()
+		entity.lastName = contact.lastName.orEmpty()
+		entity.avatar = "https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg"
+
+		if container.viewContext.hasChanges {
+			try container.viewContext.save()
+		}
+	}
+
 	func loadLocalContact() async throws -> [Contact] {
 		return try await withCheckedThrowingContinuation({ continuation in
 			do {
 				let fetchRequest = try container.viewContext.fetch(Contact.fetchRequest())
+
+				continuation.resume(returning: fetchRequest)
+			} catch {
+				continuation.resume(throwing: error)
+			}
+		})
+	}
+
+	func loadCreatedContact() async throws -> [LocalAddedContact] {
+		return try await withCheckedThrowingContinuation({ continuation in
+			do {
+				let fetchRequest = try container.viewContext.fetch(LocalAddedContact.fetchRequest())
 
 				continuation.resume(returning: fetchRequest)
 			} catch {

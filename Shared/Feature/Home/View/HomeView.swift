@@ -49,6 +49,7 @@ struct HomeView: View {
 				viewModel.page = 1
 				await viewModel.deleteItem()
 				await viewModel.getUsersList()
+				await viewModel.loadCreatedList()
 				await viewModel.loadLocalList()
 			}
 		}

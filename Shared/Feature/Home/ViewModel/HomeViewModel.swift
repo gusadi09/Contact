@@ -97,12 +97,31 @@ final class HomeViewModel: ObservableObject {
 		}
 	}
 
+	func loadCreatedList() async {
+		do {
+			let data = try await userRepository.provideLoadCreatedContact()
+
+			for item in data {
+				try self.userRepository.provideSaveToLocalContactList(with: item)
+			}
+
+		} catch {
+			DispatchQueue.main.async {
+				self.isLoading = false
+				self.isError = true
+				self.error = error.localizedDescription
+			}
+
+		}
+	}
+
 	func onLoadContact() {
 		userLists = []
 		page = 1
 		Task {
 			await deleteItem()
 			await getUsersList()
+			await loadCreatedList()
 			await loadLocalList()
 		}
 	}

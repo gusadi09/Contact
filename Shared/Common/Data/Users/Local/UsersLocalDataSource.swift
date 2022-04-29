@@ -10,6 +10,9 @@ import CoreData
 
 protocol UsersLocalDataSource {
 	func saveToLocalContactList(by contact: UserData) throws
+	func saveToLocalContactList(with contact: LocalAddedContact) throws
+	func saveLocalCreate(by contact: CreateResponse) throws
 	func loadLocalContact() async throws -> [Contact]
+	func loadCreatedContact() async throws -> [LocalAddedContact]
 	func deleteLocalItem() throws
 }

@@ -92,10 +92,10 @@ extension UsersTargetType: ContactsTargetType {
 
 			return response.toJSONData()
 		case .createUser(let userBody):
-			let response = CreateResponse(firstName: userBody.firstName, lastName: userBody.lastName)
+			let response = CreateResponse(firstName: userBody.firstName, lastName: userBody.lastName, id: "1")
 			return response.toJSONData()
 		case .updateUser( _, let userBody):
-			let response = CreateResponse(firstName: userBody.firstName, lastName: userBody.lastName)
+			let response = CreateResponse(firstName: userBody.firstName, lastName: userBody.lastName, id: nil)
 			return response.toJSONData()
 		}
 	}
