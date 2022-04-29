@@ -8,5 +8,5 @@
 import Foundation
 
 final class CreateContactViewModel: ObservableObject {
-	
+	@Published var body = UserBody(firstName: "", lastName: "")
 }

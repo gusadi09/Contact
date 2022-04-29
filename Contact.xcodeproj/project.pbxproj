@@ -34,6 +34,7 @@
 		EC28CDE6281BDE7300048093 /* CreateContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDE5281BDE7300048093 /* CreateContactView.swift */; };
 		EC28CDE9281BE06200048093 /* UsersLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDE8281BE06200048093 /* UsersLocalDataSource.swift */; };
 		EC28CDEB281BE07000048093 /* UsersDefaultLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDEA281BE07000048093 /* UsersDefaultLocalDataSource.swift */; };
+		EC28CDED281C06CA00048093 /* CreateContactView+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDEC281C06CA00048093 /* CreateContactView+Component.swift */; };
 		ECB7CA942817DE9E00D120D9 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA932817DE9E00D120D9 /* Tests_iOS.swift */; };
 		ECB7CA962817DE9E00D120D9 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA952817DE9E00D120D9 /* Tests_iOSLaunchTests.swift */; };
 		ECB7CAA02817DE9E00D120D9 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA9F2817DE9E00D120D9 /* Tests_macOS.swift */; };
@@ -120,6 +121,7 @@
 		EC28CDE5281BDE7300048093 /* CreateContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactView.swift; sourceTree = "<group>"; };
 		EC28CDE8281BE06200048093 /* UsersLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersLocalDataSource.swift; sourceTree = "<group>"; };
 		EC28CDEA281BE07000048093 /* UsersDefaultLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDefaultLocalDataSource.swift; sourceTree = "<group>"; };
+		EC28CDEC281C06CA00048093 /* CreateContactView+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateContactView+Component.swift"; sourceTree = "<group>"; };
 		ECB7CA792817DE9C00D120D9 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		ECB7CA7A2817DE9C00D120D9 /* ContactApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactApp.swift; sourceTree = "<group>"; };
 		ECB7CA7B2817DE9C00D120D9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				EC28CDE5281BDE7300048093 /* CreateContactView.swift */,
+				EC28CDEC281C06CA00048093 /* CreateContactView+Component.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -782,6 +785,7 @@
 				EC28CDDE281BCC9900048093 /* Sequence+Uniqued.swift in Sources */,
 				ECB7CAA72817DE9E00D120D9 /* HomeView.swift in Sources */,
 				EC28CDD4281BAE1500048093 /* ContactDetailViewModel.swift in Sources */,
+				EC28CDED281C06CA00048093 /* CreateContactView+Component.swift in Sources */,
 				EC031791281A937700385089 /* Int+orZero.swift in Sources */,
 				ECCE5FA82819700200D28D19 /* ContactCard.swift in Sources */,
 				EC28CDEB281BE07000048093 /* UsersDefaultLocalDataSource.swift in Sources */,

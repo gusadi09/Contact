@@ -74,8 +74,8 @@ struct HomeView: View {
 			}
 
 			ToolbarItem(placement: .navigationBarTrailing) {
-				Button {
-
+				NavigationLink {
+					CreateContactView()
 				} label: {
 					Image(systemName: "plus")
 						.foregroundColor(.teal)
