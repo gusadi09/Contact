@@ -10,14 +10,14 @@ import SwiftUI
 extension ContactDetailView {
 	struct HeaderView: View {
 		
-		@ObservedObject var viewModel: ContactDetailViewModel
+		var item: Contact
 		var geo: GeometryProxy
 		
 		var body: some View {
 			VStack(spacing: 20) {
 				VStack {
 					ImageLoader(
-						url: (viewModel.user?.data?.avatar).orEmpty(),
+						url: item.avatar.orEmpty(),
 						width: geo.size.width/3.5,
 						height: geo.size.width/3.5
 					)
@@ -27,7 +27,7 @@ extension ContactDetailView {
 							.stroke(Color.white, lineWidth: 1.5)
 					)
 					
-					Text((viewModel.user?.data?.firstName).orEmpty() + " " + (viewModel.user?.data?.lastName).orEmpty())
+					Text(item.firstName.orEmpty() + " " + item.lastName.orEmpty())
 						.font(.system(size: 16, weight: .bold, design: .default))
 				}
 				

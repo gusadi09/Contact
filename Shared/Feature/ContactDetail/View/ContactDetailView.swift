@@ -10,13 +10,13 @@ import SwiftUI
 struct ContactDetailView: View {
 	
 	@ObservedObject var viewModel = ContactDetailViewModel()
-	var id: UInt
+	var user: Contact
 	
 	var body: some View {
 		GeometryReader { geo in
 			ZStack(alignment: .top) {
 				VStack {
-					HeaderView(viewModel: viewModel, geo: geo)
+					HeaderView(item: user, geo: geo)
 
 					VStack {
 						HStack(spacing: 20) {
@@ -24,7 +24,7 @@ struct ContactDetailView: View {
 								.font(.system(size: 14, weight: .regular, design: .default))
 								.foregroundColor(.gray)
 
-							Text("\((viewModel.user?.data?.id).orZero())")
+							Text("\(user.id)")
 								.font(.system(size: 14, weight: .regular, design: .default))
 								.foregroundColor(.gray)
 
@@ -48,9 +48,6 @@ struct ContactDetailView: View {
 							.tint(.white)
 					}
 				}
-			}
-			.task {
-				await viewModel.getUsers(by: id)
 			}
 			.alert(isPresented: $viewModel.isError, content: {
 				Alert(
@@ -77,7 +74,7 @@ struct ContactDetailView: View {
 struct ContactDetailView_Previews: PreviewProvider {
 	static var previews: some View {
 		ContactDetailView(
-			id: 1
+			user: Contact()
 		)
 	}
 }

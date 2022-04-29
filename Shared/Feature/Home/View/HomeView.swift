@@ -25,7 +25,7 @@ struct HomeView: View {
 					ForEach(contacts.unique(), id: \.id) { item in
 						Section {
 							NavigationLink {
-								ContactDetailView(id: UInt(item.id))
+								ContactDetailView(user: item)
 							} label: {
 								ContactCard(user: item)
 							}
