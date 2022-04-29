@@ -17,6 +17,7 @@ struct ContactApp: App {
             HomeView()
 					}
 					.navigationViewStyle(.stack)
+					.accentColor(.teal)
         }
     }
 }

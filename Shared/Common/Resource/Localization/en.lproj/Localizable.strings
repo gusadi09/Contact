@@ -10,3 +10,10 @@
 
 "home_screen_title" = "Contact";
 "home_screen_groups_text" = "Groups";
+
+"detail_screen_edit_text" = "Edit";
+"detail_screen_message_text" = "Message";
+"detail_screen_call_text" = "Call";
+"detail_screen_email_text" = "Email";
+"detail_screen_favourite_text" = "Favourite";
+"detail_screen_contact_id_text" = "Contact ID";

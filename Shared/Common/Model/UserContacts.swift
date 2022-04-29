@@ -21,6 +21,10 @@ struct UserListResponse: Codable {
 	}
 }
 
+struct SingleUserResponse: Codable {
+	let data: UserData?
+}
+
 struct UserData: Codable {
 	let id: UInt?
 	let email: String?

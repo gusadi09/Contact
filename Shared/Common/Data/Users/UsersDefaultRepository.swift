@@ -19,7 +19,7 @@ final class UsersDefaultRepository: UsersRepository {
 		try await self.remote.getUsersList(page: page)
 	}
 
-	func provideGetSingleUser(by userId: UInt) async throws -> UserData {
+	func provideGetSingleUser(by userId: UInt) async throws -> SingleUserResponse {
 		try await self.remote.getSingleUser(by: userId)
 	}
 }
