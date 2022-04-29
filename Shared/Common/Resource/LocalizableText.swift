@@ -21,4 +21,9 @@ enum LocalizableText {
 		"home_screen_groups_text",
 		comment: "groups text for leading toolbar item in home"
 	)
+
+	static let detailScreenEditText = NSLocalizedString(
+		"detail_screen_edit_text",
+		comment: "edit text for toolbar button on detail screen"
+	)
 }

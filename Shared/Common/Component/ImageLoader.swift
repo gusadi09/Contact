@@ -22,12 +22,12 @@ struct ImageLoader: View {
 						Image(systemName: "photo")
 							.resizable()
 							.scaledToFit()
-							.frame(width: 30)
+							.frame(width: width)
 					case .failure:
 						Image(systemName: "photo")
 							.resizable()
 							.scaledToFit()
-							.frame(width: 30)
+							.frame(width: width)
 					case .success(let image):
 						image
 							.resizable()
@@ -38,7 +38,7 @@ struct ImageLoader: View {
 						Image(systemName: "photo")
 							.resizable()
 							.scaledToFit()
-							.frame(width: 30)
+							.frame(width: width)
 					}
 				}
 			)
