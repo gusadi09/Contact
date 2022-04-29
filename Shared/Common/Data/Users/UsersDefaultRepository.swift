@@ -55,4 +55,12 @@ final class UsersDefaultRepository: UsersRepository {
 	func provideDeleteLocalItem() throws {
 		try self.local.deleteLocalItem()
 	}
+
+	func provideEditContact(in id: UInt, with body: UserBody) async throws -> CreateResponse {
+		try await self.remote.editContact(in: id, with: body)
+	}
+
+	func provideSaveLocalEditContact(user: Contact, editedUser: CreateResponse) throws {
+		try self.local.saveEditContact(user: user, editedUser: editedUser)
+	}
 }

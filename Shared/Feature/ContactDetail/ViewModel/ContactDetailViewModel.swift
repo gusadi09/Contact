@@ -48,6 +48,25 @@ final class ContactDetailViewModel: ObservableObject {
 			}
 		}
 	}
+
+	func loadLocalUser(user: Contact) async -> Contact {
+
+		do {
+			if let localUser = try await userRepository.provideLoadLocalContact().filter({ item in
+				item.id == user.id
+			}).first {
+				return localUser
+			}
+		} catch {
+			DispatchQueue.main.async {
+				self.isLoading = false
+				self.isError = true
+				self.error = error.localizedDescription
+			}
+		}
+
+		return Contact()
+	}
 	
 	func onLoadUser(by userId: UInt) {
 		Task {

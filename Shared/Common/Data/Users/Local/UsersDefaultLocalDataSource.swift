@@ -29,6 +29,26 @@ final class UsersDefaultLocalDataSource: UsersLocalDataSource {
 		}
 	}
 
+	func saveEditContact(user: Contact, editedUser: CreateResponse) throws {
+
+		let fetcher: NSFetchRequest<Contact> = Contact.fetchRequest()
+		let fetchRequest = try container.viewContext.fetch(fetcher)
+
+		guard let items = fetchRequest.filter({ value in
+			value.id == user.id
+		}).first else {
+			print("Not Found")
+			return
+		}
+
+		items.firstName = editedUser.firstName.orEmpty()
+		items.lastName = editedUser.lastName.orEmpty()
+		items.id = user.id
+		items.avatar = user.avatar.orEmpty()
+
+		try container.viewContext.save()
+	}
+
 	func saveToLocalContactList(with contact: LocalAddedContact) throws {
 		let entity = Contact(context: container.viewContext)
 

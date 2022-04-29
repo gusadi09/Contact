@@ -17,4 +17,6 @@ protocol UsersRepository{
 	func provideSaveToLocalContactList(with contact: LocalAddedContact) throws
 	func provideSaveLocalCreate(by contact: CreateResponse) throws
 	func provideDeleteLocalItem() throws
+	func provideEditContact(in id: UInt, with body: UserBody) async throws -> CreateResponse
+	func provideSaveLocalEditContact(user: Contact, editedUser: CreateResponse) throws
 }

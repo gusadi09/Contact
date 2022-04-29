@@ -116,12 +116,18 @@ final class HomeViewModel: ObservableObject {
 	}
 
 	func onLoadContact() {
-		userLists = []
-		page = 1
 		Task {
-			await deleteItem()
-			await getUsersList()
-			await loadCreatedList()
+			if self.userLists.isEmpty {
+				DispatchQueue.main.async {
+					self.userLists = []
+					self.page = 1
+				}
+
+				await deleteItem()
+				await getUsersList()
+				await loadCreatedList()
+			}
+
 			await loadLocalList()
 		}
 	}

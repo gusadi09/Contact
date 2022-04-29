@@ -25,7 +25,7 @@ struct HomeView: View {
 					ForEach(contacts.unique(), id: \.id) { item in
 						Section {
 							NavigationLink {
-								ContactDetailView(user: item)
+								ContactDetailView(user: .constant(item))
 							} label: {
 								ContactCard(user: item)
 							}
@@ -45,11 +45,14 @@ struct HomeView: View {
 		.listStyle(.plain)
 		.refreshable {
 			Task {
+				if viewModel.userLists.isEmpty {
 				viewModel.userLists = []
 				viewModel.page = 1
 				await viewModel.deleteItem()
 				await viewModel.getUsersList()
-				await viewModel.loadCreatedList()
+					await viewModel.loadCreatedList()
+				}
+
 				await viewModel.loadLocalList()
 			}
 		}

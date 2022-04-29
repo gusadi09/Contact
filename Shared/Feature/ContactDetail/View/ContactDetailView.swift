@@ -10,13 +10,13 @@ import SwiftUI
 struct ContactDetailView: View {
 	
 	@ObservedObject var viewModel = ContactDetailViewModel()
-	var user: Contact
+	@Binding var user: Contact
 	
 	var body: some View {
 		GeometryReader { geo in
 			ZStack(alignment: .top) {
 				VStack {
-					HeaderView(item: user, geo: geo)
+					HeaderView(item: $user, geo: geo)
 
 					VStack {
 						HStack(spacing: 20) {
@@ -49,6 +49,12 @@ struct ContactDetailView: View {
 					}
 				}
 			}
+			.onAppear(perform: {
+				Task {
+					self.user = await viewModel.loadLocalUser(user: user)
+					await print(viewModel.loadLocalUser(user: user))
+				}
+			})
 			.alert(isPresented: $viewModel.isError, content: {
 				Alert(
 					title: Text(LocalizableText.generalAttentionText),
@@ -74,7 +80,7 @@ struct ContactDetailView: View {
 struct ContactDetailView_Previews: PreviewProvider {
 	static var previews: some View {
 		ContactDetailView(
-			user: Contact()
+			user: .constant(Contact())
 		)
 	}
 }

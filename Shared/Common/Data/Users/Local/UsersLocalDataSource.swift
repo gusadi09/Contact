@@ -15,4 +15,5 @@ protocol UsersLocalDataSource {
 	func loadLocalContact() async throws -> [Contact]
 	func loadCreatedContact() async throws -> [LocalAddedContact]
 	func deleteLocalItem() throws
+	func saveEditContact(user: Contact, editedUser: CreateResponse) throws
 }

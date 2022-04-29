@@ -10,7 +10,7 @@ import SwiftUI
 extension ContactDetailView {
 	struct HeaderView: View {
 		
-		var item: Contact
+		@Binding var item: Contact
 		var geo: GeometryProxy
 		
 		var body: some View {

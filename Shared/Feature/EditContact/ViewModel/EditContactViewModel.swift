@@ -26,4 +26,42 @@ final class EditContactViewModel: ObservableObject {
 		self.body.firstName = user.firstName.orEmpty()
 		self.body.lastName = user.lastName.orEmpty()
 	}
+
+	@MainActor func onStartFetch() {
+		self.isError = false
+		self.error = ""
+		self.isLoading = true
+		self.success = false
+	}
+
+	func saveEditedContact(user: Contact) async {
+
+		await onStartFetch()
+
+		do {
+
+			let response = try await repository.provideEditContact(in: UInt(user.id), with: body)
+
+			try repository.provideSaveLocalEditContact(user: user, editedUser: response)
+
+			DispatchQueue.main.async {
+				self.isLoading = false
+				self.success = true
+			}
+
+		} catch {
+			DispatchQueue.main.async {
+				self.isLoading = false
+				self.isError = true
+				self.error = error.localizedDescription
+			}
+
+		}
+	}
+
+	func saveEditing(user: Contact) {
+		Task {
+			await saveEditedContact(user: user)
+		}
+	}
 }

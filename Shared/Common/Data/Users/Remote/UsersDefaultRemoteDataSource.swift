@@ -27,4 +27,8 @@ final class UsersDefaultRemoteDataSource: UsersRemoteDataSource {
 	func addContact(with body: UserBody) async throws -> CreateResponse {
 		try await self.provider.asyncRequest(.createUser(body), model: CreateResponse.self)
 	}
+
+	func editContact(in id: UInt, with body: UserBody) async throws -> CreateResponse {
+		try await self.provider.asyncRequest(.updateUser(id, body), model: CreateResponse.self)
+	}
 }

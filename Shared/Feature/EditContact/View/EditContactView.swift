@@ -102,7 +102,7 @@ struct EditContactView: View {
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
 					Button {
-						
+						viewModel.saveEditing(user: user)
 					} label: {
 						Text(LocalizableText.generalDoneText)
 							.foregroundColor(.teal)
