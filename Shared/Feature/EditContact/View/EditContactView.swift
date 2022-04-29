@@ -9,8 +9,8 @@ import SwiftUI
 
 struct EditContactView: View {
 	
-	@ObservableObject var viewModel = EditContactViewModel()
-	
+	@ObservedObject var viewModel = EditContactViewModel()
+
 	var body: some View {
 		Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
 	}
