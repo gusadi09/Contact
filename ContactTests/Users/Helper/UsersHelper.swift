@@ -32,8 +32,18 @@ final class UsersHelper {
 		try await stubProvider.asyncRequest(.getListUsers(1), model: UserListResponse.self)
 	}
 
+	func stubCreateUser() async throws -> CreateResponse {
+		let body = UserBody(firstName: "test", lastName: "unit")
+		return try await stubProvider.asyncRequest(.createUser(body), model: CreateResponse.self)
+	}
+
 	func stubGetSingleUser() async throws -> UserData {
 		try await stubProvider.asyncRequest(.getSingleUser(1), model: UserData.self)
+	}
+
+	func stubEditUser() async throws -> CreateResponse {
+		let body = UserBody(firstName: "test", lastName: "unit")
+		return try await stubProvider.asyncRequest(.updateUser(1, body), model: CreateResponse.self)
 	}
 
 	func stubNotFoundListUser() async throws -> UserListResponse {
@@ -42,5 +52,15 @@ final class UsersHelper {
 
 	func stubNotFoundSingleUser() async throws -> UserData {
 		try await errorStubProvider.asyncRequest(.getSingleUser(0), model: UserData.self)
+	}
+
+	func stubNotFoundCreateUser() async throws -> CreateResponse {
+		let body = UserBody(firstName: "test", lastName: "unit")
+		return try await errorStubProvider.asyncRequest(.createUser(body), model: CreateResponse.self)
+	}
+
+	func stubNotFoundEditUser() async throws -> CreateResponse {
+		let body = UserBody(firstName: "test", lastName: "unit")
+		return try await errorStubProvider.asyncRequest(.updateUser(1, body), model: CreateResponse.self)
 	}
 }
