@@ -35,6 +35,9 @@
 		EC28CDE9281BE06200048093 /* UsersLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDE8281BE06200048093 /* UsersLocalDataSource.swift */; };
 		EC28CDEB281BE07000048093 /* UsersDefaultLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDEA281BE07000048093 /* UsersDefaultLocalDataSource.swift */; };
 		EC28CDED281C06CA00048093 /* CreateContactView+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDEC281C06CA00048093 /* CreateContactView+Component.swift */; };
+		EC28CDF2281C181700048093 /* EditContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDF1281C181700048093 /* EditContactViewModel.swift */; };
+		EC28CDF4281C183400048093 /* EditContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDF3281C183400048093 /* EditContactView.swift */; };
+		EC28CDF6281C185700048093 /* EditContactView+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDF5281C185700048093 /* EditContactView+Component.swift */; };
 		ECB7CA942817DE9E00D120D9 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA932817DE9E00D120D9 /* Tests_iOS.swift */; };
 		ECB7CA962817DE9E00D120D9 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA952817DE9E00D120D9 /* Tests_iOSLaunchTests.swift */; };
 		ECB7CAA02817DE9E00D120D9 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA9F2817DE9E00D120D9 /* Tests_macOS.swift */; };
@@ -122,6 +125,9 @@
 		EC28CDE8281BE06200048093 /* UsersLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersLocalDataSource.swift; sourceTree = "<group>"; };
 		EC28CDEA281BE07000048093 /* UsersDefaultLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDefaultLocalDataSource.swift; sourceTree = "<group>"; };
 		EC28CDEC281C06CA00048093 /* CreateContactView+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateContactView+Component.swift"; sourceTree = "<group>"; };
+		EC28CDF1281C181700048093 /* EditContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewModel.swift; sourceTree = "<group>"; };
+		EC28CDF3281C183400048093 /* EditContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactView.swift; sourceTree = "<group>"; };
+		EC28CDF5281C185700048093 /* EditContactView+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditContactView+Component.swift"; sourceTree = "<group>"; };
 		ECB7CA792817DE9C00D120D9 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		ECB7CA7A2817DE9C00D120D9 /* ContactApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactApp.swift; sourceTree = "<group>"; };
 		ECB7CA7B2817DE9C00D120D9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -337,6 +343,7 @@
 		EC28CDE2281BDE3B00048093 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				EC28CDEE281C17F200048093 /* EditContact */,
 				EC28CDDF281BDE0900048093 /* CreateContact */,
 				EC28CDD0281BADF600048093 /* ContactDetail */,
 				ECB7CAC02817DF2000D120D9 /* Home */,
@@ -351,6 +358,32 @@
 				EC28CDEA281BE07000048093 /* UsersDefaultLocalDataSource.swift */,
 			);
 			path = Local;
+			sourceTree = "<group>";
+		};
+		EC28CDEE281C17F200048093 /* EditContact */ = {
+			isa = PBXGroup;
+			children = (
+				EC28CDF0281C180600048093 /* ViewModel */,
+				EC28CDEF281C17FF00048093 /* View */,
+			);
+			path = EditContact;
+			sourceTree = "<group>";
+		};
+		EC28CDEF281C17FF00048093 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EC28CDF3281C183400048093 /* EditContactView.swift */,
+				EC28CDF5281C185700048093 /* EditContactView+Component.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EC28CDF0281C180600048093 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EC28CDF1281C181700048093 /* EditContactViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		ECB7CA722817DE9C00D120D9 = {
@@ -773,6 +806,7 @@
 				EC031784281A5A2700385089 /* UsersTargetType.swift in Sources */,
 				EC031786281A5A3500385089 /* UsersRemoteDataSource.swift in Sources */,
 				ECB7CAC62817E59A00D120D9 /* MoyaProvider+AsyncRequest.swift in Sources */,
+				EC28CDF6281C185700048093 /* EditContactView+Component.swift in Sources */,
 				EC28CDE6281BDE7300048093 /* CreateContactView.swift in Sources */,
 				EC031793281A93A900385089 /* String+orEmpty.swift in Sources */,
 				ECCE5FA42818FF9600D28D19 /* HomeViewModel.swift in Sources */,
@@ -792,7 +826,9 @@
 				EC28CDE9281BE06200048093 /* UsersLocalDataSource.swift in Sources */,
 				EC03178C281A5A6000385089 /* UsersDefaultRepository.swift in Sources */,
 				EC031788281A5A4500385089 /* UsersDefaultRemoteDataSource.swift in Sources */,
+				EC28CDF4281C183400048093 /* EditContactView.swift in Sources */,
 				EC03177F281A594A00385089 /* ContactsTargetType.swift in Sources */,
+				EC28CDF2281C181700048093 /* EditContactViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
