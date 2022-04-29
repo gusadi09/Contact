@@ -18,7 +18,7 @@ struct CreateContactView: View {
 
 				VStack {
 					HStack(spacing: 20) {
-						Text("First Name")
+						Text(LocalizableText.createScreenFirstNameText)
 							.font(.system(size: 14, weight: .regular, design: .default))
 							.foregroundColor(.gray)
 
@@ -33,7 +33,7 @@ struct CreateContactView: View {
 					Divider()
 
 					HStack(spacing: 20) {
-						Text("Last Name")
+						Text(LocalizableText.createScreenLastNameText)
 							.font(.system(size: 14, weight: .regular, design: .default))
 							.foregroundColor(.gray)
 
@@ -55,7 +55,7 @@ struct CreateContactView: View {
 					Button {
 
 					} label: {
-						Text("Done")
+						Text(LocalizableText.generalDoneText)
 							.foregroundColor(.teal)
 					}
 				}

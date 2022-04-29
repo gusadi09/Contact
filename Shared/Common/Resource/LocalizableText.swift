@@ -12,6 +12,10 @@ enum LocalizableText {
 		"general_attention",
 		comment: "attention string for general usage"
 	)
+	static let generalDoneText = NSLocalizedString(
+		"general_done",
+		comment: "done text for general usage"
+	)
 	
 	static let homeScreenTitle = NSLocalizedString(
 		"home_screen_title",
@@ -45,5 +49,14 @@ enum LocalizableText {
 	static let detailScreenContactIDText = NSLocalizedString(
 		"detail_screen_contact_id_text",
 		comment: "string for contact id label in detail"
+	)
+
+	static let createScreenFirstNameText = NSLocalizedString(
+		"create_screen_first_name_text",
+		comment: "first name label for text field"
+	)
+	static let createScreenLastNameText = NSLocalizedString(
+		"create_screen_last_name_text",
+		comment: "last name label for text field"
 	)
 }
