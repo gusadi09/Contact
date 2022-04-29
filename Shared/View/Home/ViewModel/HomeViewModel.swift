@@ -13,19 +13,49 @@ final class HomeViewModel: ObservableObject {
 
 	@Published var page: UInt = 1
 	@Published var userLists = [UserData]()
+	@Published var sectionedDict: Dictionary<String, [UserData]> = [:]
+	@Published var error = ""
+	@Published var isError = false
+	@Published var isLoading = false
 
 	init(userRepository: UsersRepository = UsersDefaultRepository()) {
 		self.userRepository = userRepository
 	}
 
+	@MainActor func onStartFetch() {
+		self.isError = false
+		self.error = ""
+		self.isLoading = true
+	}
+
+	func getSectionedDictionary() -> Dictionary <String , [UserData]> {
+		let sectionDictionary: Dictionary<String, [UserData]> = {
+			return Dictionary(grouping: userLists, by: {
+				let name = $0.firstName.orEmpty()
+				let normalizedName = name.folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
+				let firstChar = String(normalizedName.first.orEmpty()).uppercased()
+				return firstChar
+			})
+		}()
+		return sectionDictionary
+	}
+
 	@MainActor func getUsersList() async {
+
+		onStartFetch()
+
 		do {
 
 			let response = try await userRepository.provideGetUsersList(page: page)
 
+			self.isLoading = false
+
 			self.userLists += response.data ?? []
+			self.sectionedDict = getSectionedDictionary()
 		} catch {
-			print(error.localizedDescription)
+			self.isLoading = false
+			self.isError = true
+			self.error = error.localizedDescription
 		}
 	}
 

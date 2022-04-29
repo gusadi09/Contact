@@ -23,6 +23,7 @@
 		EC0317A9281AA5C500385089 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = EC0317A8281AA5C500385089 /* RxMoya */; };
 		EC28CDC7281B95B200048093 /* ContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDC6281B95B200048093 /* ContactTests.swift */; };
 		EC28CDCD281B95FE00048093 /* UsersHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC031798281AA06800385089 /* UsersHelper.swift */; };
+		EC28CDCF281B9C6000048093 /* Character+orEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC28CDCE281B9C6000048093 /* Character+orEmpty.swift */; };
 		ECB7CA942817DE9E00D120D9 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA932817DE9E00D120D9 /* Tests_iOS.swift */; };
 		ECB7CA962817DE9E00D120D9 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA952817DE9E00D120D9 /* Tests_iOSLaunchTests.swift */; };
 		ECB7CAA02817DE9E00D120D9 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7CA9F2817DE9E00D120D9 /* Tests_macOS.swift */; };
@@ -98,6 +99,7 @@
 		EC031798281AA06800385089 /* UsersHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersHelper.swift; sourceTree = "<group>"; };
 		EC28CDC4281B95B200048093 /* ContactTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC28CDC6281B95B200048093 /* ContactTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTests.swift; sourceTree = "<group>"; };
+		EC28CDCE281B9C6000048093 /* Character+orEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+orEmpty.swift"; sourceTree = "<group>"; };
 		ECB7CA792817DE9C00D120D9 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		ECB7CA7A2817DE9C00D120D9 /* ContactApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactApp.swift; sourceTree = "<group>"; };
 		ECB7CA7B2817DE9C00D120D9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				EC031790281A937700385089 /* Int+orZero.swift */,
 				EC031792281A93A900385089 /* String+orEmpty.swift */,
 				EC031794281A93ED00385089 /* UInt+orZero.swift */,
+				EC28CDCE281B9C6000048093 /* Character+orEmpty.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -680,6 +683,7 @@
 				ECB7CAC62817E59A00D120D9 /* MoyaProvider+AsyncRequest.swift in Sources */,
 				EC031793281A93A900385089 /* String+orEmpty.swift in Sources */,
 				ECCE5FA42818FF9600D28D19 /* HomeViewModel.swift in Sources */,
+				EC28CDCF281B9C6000048093 /* Character+orEmpty.swift in Sources */,
 				ECCE5FA02818EBEA00D28D19 /* LocalizableText.swift in Sources */,
 				ECB7CAC82817F36800D120D9 /* MoyaProvider+defaultProvider.swift in Sources */,
 				ECB7CAA32817DE9E00D120D9 /* Contact.xcdatamodeld in Sources */,

@@ -12,28 +12,53 @@ struct HomeView: View {
 
 	@ObservedObject var viewModel = HomeViewModel()
 
+	init() {
+		UITableView.appearance().sectionFooterHeight = 0
+		UITableView.appearance().sectionHeaderHeight = 0
+	}
+
 	var body: some View {
 		List {
-			Section {
-				ForEach(viewModel.userLists, id: \.id) { item in
-					ContactCard(user: item)
-						.task {
-							if item.id == viewModel.userLists.last?.id {
-								viewModel.page += 1
-								await viewModel.getUsersList()
+			ForEach(viewModel.sectionedDict.keys.sorted(), id: \.self) { key in
+
+				if let contacts = viewModel.sectionedDict[key] {
+					ForEach(contacts, id: \.id) { item in
+						Section {
+							NavigationLink {
+
+							} label: {
+								ContactCard(user: item)
 							}
+							.task {
+								if item.id == viewModel.userLists.last?.id {
+									viewModel.page += 1
+									await viewModel.getUsersList()
+								}
+							}
+						} header: {
+							Text("\(key)")
 						}
+					}
 				}
 			}
 		}
 		.listStyle(.plain)
 		.refreshable {
-			viewModel.userLists = []
-			viewModel.page = 1
-			viewModel.onLoadContact()
+			Task {
+				viewModel.userLists = []
+				viewModel.page = 1
+				await viewModel.getUsersList()
+			}
 		}
 		.onAppear(perform: {
 			viewModel.onLoadContact()
+		})
+		.alert(isPresented: $viewModel.isError, content: {
+			Alert(
+				title: Text(LocalizableText.generalAttentionText),
+				message: Text(viewModel.error),
+				dismissButton: .cancel()
+			)
 		})
 		.navigationTitle(LocalizableText.homeScreenTitle)
 		.toolbar {

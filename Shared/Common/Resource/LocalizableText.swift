@@ -8,6 +8,11 @@
 import Foundation
 
 enum LocalizableText {
+	static let generalAttentionText = NSLocalizedString(
+		"general_attention",
+		comment: "attention string for general usage"
+	)
+	
 	static let homeScreenTitle = NSLocalizedString(
 		"home_screen_title",
 		comment: "contact title for home screen"
