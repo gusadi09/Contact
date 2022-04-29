@@ -21,4 +21,9 @@ final class EditContactViewModel: ObservableObject {
 	init(repository: UsersRepository = UsersDefaultRepository()) {
 		self.repository = repository
 	}
+
+	func onScreenAppear(user: Contact) {
+		self.body.firstName = user.firstName.orEmpty()
+		self.body.lastName = user.lastName.orEmpty()
+	}
 }

@@ -60,7 +60,7 @@ struct ContactDetailView: View {
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
 					NavigationLink {
-
+						EditContactView(user: user)
 					} label: {
 						Text(LocalizableText.detailScreenEditText)
 							.foregroundColor(.teal)

@@ -11,13 +11,18 @@ struct EditContactView: View {
 	
 	@ObservedObject var viewModel = EditContactViewModel()
 
+	var user: Contact
+
 	@Environment(\.presentationMode) var presentationMode
 
 	var body: some View {
 		GeometryReader { proxy in
 			ZStack(alignment: .top) {
 				VStack {
-					HeaderView(avatar: "", geo: proxy)
+					HeaderView(
+						avatar: user.avatar.orEmpty(),
+						geo: proxy
+					)
 						.alert(isPresented: $viewModel.isError, content: {
 							Alert(
 								title: Text(LocalizableText.generalAttentionText),
@@ -62,8 +67,9 @@ struct EditContactView: View {
 								.font(.system(size: 14, weight: .regular, design: .default))
 								.foregroundColor(.gray)
 
-							TextField("", text: $viewModel.body.lastName)
+							Text("\(user.id)")
 								.font(.system(size: 14, weight: .regular, design: .default))
+								.foregroundColor(.gray)
 
 							Spacer()
 						}
@@ -89,6 +95,9 @@ struct EditContactView: View {
 					}
 				}
 			}
+			.onAppear(perform: {
+				viewModel.onScreenAppear(user: user)
+			})
 			.navigationBarTitleDisplayMode(.inline)
 			.toolbar {
 				ToolbarItem(placement: .navigationBarTrailing) {
@@ -106,6 +115,6 @@ struct EditContactView: View {
 
 struct EditContactView_Previews: PreviewProvider {
     static var previews: some View {
-        EditContactView()
+			EditContactView(user: Contact())
     }
 }
