@@ -15,6 +15,7 @@ final class ContactDetailViewModel: ObservableObject {
 	@Published var isLoading = false
 	@Published var isError = false
 	@Published var error = ""
+	@Published var contact: Contact?
 	
 	init(userRepository: UsersRepository = UsersDefaultRepository()) {
 		self.userRepository = userRepository
@@ -49,13 +50,16 @@ final class ContactDetailViewModel: ObservableObject {
 		}
 	}
 
-	func loadLocalUser(user: Contact) async -> Contact {
+	func loadLocalUser(user: Contact) async {
 
 		do {
 			if let localUser = try await userRepository.provideLoadLocalContact().filter({ item in
 				item.id == user.id
 			}).first {
-				return localUser
+				DispatchQueue.main.async {
+					self.contact = localUser
+				}
+
 			}
 		} catch {
 			DispatchQueue.main.async {
@@ -64,8 +68,6 @@ final class ContactDetailViewModel: ObservableObject {
 				self.error = error.localizedDescription
 			}
 		}
-
-		return Contact()
 	}
 	
 	func onLoadUser(by userId: UInt) {

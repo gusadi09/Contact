@@ -16,7 +16,7 @@ struct ContactDetailView: View {
 		GeometryReader { geo in
 			ZStack(alignment: .top) {
 				VStack {
-					HeaderView(item: $user, geo: geo)
+					HeaderView(item: $viewModel.contact, geo: geo)
 
 					VStack {
 						HStack(spacing: 20) {
@@ -24,7 +24,7 @@ struct ContactDetailView: View {
 								.font(.system(size: 14, weight: .regular, design: .default))
 								.foregroundColor(.gray)
 
-							Text("\(user.id)")
+							Text("\((viewModel.contact?.id) ?? 0)")
 								.font(.system(size: 14, weight: .regular, design: .default))
 								.foregroundColor(.gray)
 
@@ -51,8 +51,8 @@ struct ContactDetailView: View {
 			}
 			.onAppear(perform: {
 				Task {
-					self.user = await viewModel.loadLocalUser(user: user)
-					await print(viewModel.loadLocalUser(user: user))
+					self.viewModel.contact = user
+					await viewModel.loadLocalUser(user: user)
 				}
 			})
 			.alert(isPresented: $viewModel.isError, content: {
