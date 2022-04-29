@@ -12,3 +12,8 @@
 "home_screen_groups_text" = "Kelompok";
 
 "detail_screen_edit_text" = "Sunting";
+"detail_screen_message_text" = "Pesan";
+"detail_screen_call_text" = "Panggil";
+"detail_screen_email_text" = "Surel";
+"detail_screen_favourite_text" = "Favorit";
+"detail_screen_contact_id_text" = "ID Kontak";

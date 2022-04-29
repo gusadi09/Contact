@@ -9,5 +9,5 @@ import Foundation
 
 protocol UsersRepository{
 	func provideGetUsersList(page: UInt) async throws -> UserListResponse
-	func provideGetSingleUser(by userId: UInt) async throws -> UserData
+	func provideGetSingleUser(by userId: UInt) async throws -> SingleUserResponse
 }

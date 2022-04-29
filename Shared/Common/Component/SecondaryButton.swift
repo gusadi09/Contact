@@ -10,26 +10,35 @@ import SwiftUI
 struct SecondaryButton: View {
 	
 	var systemName: String
+	var buttonTitle: String
 	var action: () -> Void
 
 	var body: some View {
 		Button {
 			action()
 		} label: {
-			Image(systemName: systemName)
-				.padding()
-				.foregroundColor(.gray)
-				.background(
-					Circle()
-						.foregroundColor(.white)
+			VStack(spacing: 2) {
+				Image(systemName: systemName)
+					.scaledToFit()
+					.frame(width: 10)
+					.padding()
+					.foregroundColor(.gray)
+					.background(
+						Circle()
+							.foregroundColor(.white)
 				)
+
+				Text(buttonTitle)
+					.font(.system(size: 10, weight: .light, design: .default))
+					.foregroundColor(.black)
+			}
 		}
 	}
 }
 
 struct SecondaryButton_Previews: PreviewProvider {
     static var previews: some View {
-        SecondaryButton(systemName: "envelope", action: {})
+			SecondaryButton(systemName: "envelope", buttonTitle: "email", action: {})
 				.padding()
 				.background(Color.teal)
     }

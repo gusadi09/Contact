@@ -8,45 +8,66 @@
 import SwiftUI
 
 struct ContactDetailView: View {
-
+	
 	@ObservedObject var viewModel = ContactDetailViewModel()
-	var user: UserData
-
+	var id: UInt
+	
 	var body: some View {
-		VStack {
-			GeometryReader { geo in
+		GeometryReader { geo in
+			ZStack {
 				VStack {
-					ImageLoader(
-						url: user.avatar.orEmpty(),
-						width: geo.size.width/3.5,
-						height: geo.size.width/3.5
-					)
-						.clipShape(Circle())
-						.overlay(
-							Circle()
-								.stroke(Color.white, lineWidth: 1.5)
-						)
+					HeaderView(viewModel: viewModel, geo: geo)
 
-					Text(user.firstName.orEmpty() + " " + user.lastName.orEmpty())
-						.font(.system(size: 16, weight: .bold, design: .default))
+					VStack {
+						HStack(spacing: 20) {
+							Text(LocalizableText.detailScreenContactIDText)
+								.font(.system(size: 14, weight: .regular, design: .default))
+								.foregroundColor(.gray)
+
+							Text("\((viewModel.user?.data?.id).orZero())")
+								.font(.system(size: 14, weight: .regular, design: .default))
+								.foregroundColor(.gray)
+
+							Spacer()
+						}
+						.padding(.horizontal)
+						.padding(.vertical, 10)
+
+						Divider()
+					}
+					.padding(.leading, 20)
 				}
-				.padding()
-				.frame(width: geo.size.width)
-				.background(
-					LinearGradient(colors: [.teal.opacity(0.3), .white], startPoint: .bottom, endPoint: .top)
-				)
+
+				if viewModel.isLoading {
+					ZStack {
+						Color.black.opacity(0.4)
+							.edgesIgnoringSafeArea(.all)
+
+						ProgressView()
+							.progressViewStyle(.circular)
+					}
+				}
 			}
-		}
-		.navigationBarTitleDisplayMode(.inline)
-		.toolbar {
-			ToolbarItem(placement: .navigationBarTrailing) {
-				NavigationLink {
-
-				} label: {
-					Text(LocalizableText.detailScreenEditText)
-						.foregroundColor(.teal)
+			.task {
+				await viewModel.getUsers(by: id)
+			}
+			.alert(isPresented: $viewModel.isError, content: {
+				Alert(
+					title: Text(LocalizableText.generalAttentionText),
+					message: Text(viewModel.error),
+					dismissButton: .cancel()
+				)
+			})
+			.navigationBarTitleDisplayMode(.inline)
+			.toolbar {
+				ToolbarItem(placement: .navigationBarTrailing) {
+					NavigationLink {
+						
+					} label: {
+						Text(LocalizableText.detailScreenEditText)
+							.foregroundColor(.teal)
+					}
 				}
-
 			}
 		}
 	}
@@ -55,13 +76,7 @@ struct ContactDetailView: View {
 struct ContactDetailView_Previews: PreviewProvider {
 	static var previews: some View {
 		ContactDetailView(
-			user: UserData(
-				id: 1,
-				email: "test@mail.com",
-				firstName: "test",
-				lastName: "test",
-				avatar: ""
-			)
+			id: 1
 		)
 	}
 }
