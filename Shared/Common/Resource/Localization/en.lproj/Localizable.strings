@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Contact
+
+  Created by Gus Adi on 27/04/22.
+  
+*/
+
+"general_attention" = "Attention";
+"general_done" = "Done";
+
+"home_screen_title" = "Contact";
+"home_screen_groups_text" = "Groups";
+
+"detail_screen_edit_text" = "Edit";
+"detail_screen_message_text" = "Message";
+"detail_screen_call_text" = "Call";
+"detail_screen_email_text" = "Email";
+"detail_screen_favourite_text" = "Favourite";
+"detail_screen_contact_id_text" = "Contact ID";
+
+"create_screen_first_name_text" = "First Name";
+"create_screen_last_name_text" = "Last Name";

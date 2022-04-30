@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Contact
+
+  Created by Gus Adi on 27/04/22.
+  
+*/
+
+"general_attention" = "Perhatian";
+"general_done" = "Selesai";
+
+"home_screen_title" = "Kontak";
+"home_screen_groups_text" = "Kelompok";
+
+"detail_screen_edit_text" = "Sunting";
+"detail_screen_message_text" = "Pesan";
+"detail_screen_call_text" = "Panggil";
+"detail_screen_email_text" = "Surel";
+"detail_screen_favourite_text" = "Favorit";
+"detail_screen_contact_id_text" = "ID Kontak";
+
+"create_screen_first_name_text" = "Nama Depan";
+"create_screen_last_name_text" = "Nama Belakang";
